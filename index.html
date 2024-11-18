@@ -21,6 +21,9 @@
         h2 {
             color: #4CAF50;
         }
+        a {
+            color: #4CAF50;
+        }
     </style>
 </head>
 <body>
@@ -44,8 +47,8 @@ from tkinter import messagebox</code></pre>
     <h3>2.2 Delete Task Function</h3>
     <pre><code>def delete_task():
     try:
-        selected_task_index = listbox_tasks.curselection()[0]
-        listbox_tasks.delete(selected_task_index)
+        selected task_index = listbox_tasks.curselection()[0]
+        listbox_tasks.delete(selected task_index)
     except IndexError:
         messagebox.showwarning("Warning", "You must select a task.")</code></pre>
 
@@ -90,5 +93,8 @@ listbox_tasks.place(relx=0.5, rely=0.4, anchor="n")</code></pre>
 
     <h2>5. Running the Application</h2>
     <pre><code>root.mainloop()</code></pre>
+
+    <h2>6. GitHub Repository</h2>
+    <p>You can find the code and more information in the GitHub repository: <a href="https://github.com/tejasav-saxena/to_do_list.git" target="_blank">https://github.com/yourusername/todo-list-app</a></p>
 </body>
 </html>
