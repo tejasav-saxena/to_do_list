@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List Application Code Index</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+        }
+        pre {
+            background: #333;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            overflow: auto;
+        }
+        h2 {
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <h1>To-Do List Application Code Index</h1>
+    <p>This document provides an index of the Python code used to create a To-Do List application with a GUI built using tkinter.</p>
+    
+    <h2>1. Importing Required Modules</h2>
+    <pre><code>import tkinter as tk
+from tkinter import messagebox</code></pre>
+
+    <h2>2. Defining Functions</h2>
+    <h3>2.1 Add Task Function</h3>
+    <pre><code>def add_task():
+    task = entry_task.get()
+    if task != "":
+        listbox_tasks.insert(tk.END, task)
+        entry_task.delete(0, tk.END)
+    else:
+        messagebox.showwarning("Warning", "You must enter a task.")</code></pre>
+    
+    <h3>2.2 Delete Task Function</h3>
+    <pre><code>def delete_task():
+    try:
+        selected_task_index = listbox_tasks.curselection()[0]
+        listbox_tasks.delete(selected_task_index)
+    except IndexError:
+        messagebox.showwarning("Warning", "You must select a task.")</code></pre>
+
+    <h2>3. Creating the Main Application Window</h2>
+    <pre><code>root = tk.Tk()
+root.title("To-Do List Application")
+root.geometry("400x400")
+root.configure(bg="black")  # Set the background color to black</code></pre>
+
+    <h2>4. Creating and Styling User Interface Elements</h2>
+    <h3>4.1 Frame for Tasks</h3>
+    <pre><code>frame_tasks = tk.Frame(root, bg="black")
+frame_tasks.place(relx=0.5, rely=0.1, anchor="n")</code></pre>
+    
+    <h3>4.2 Entry Widget for Task Input</h3>
+    <pre><code>entry_task = tk.Entry(frame_tasks, width=30, font=("Arial", 14), bg="#333333", fg="#ffffff")
+entry_task.pack(side=tk.LEFT, padx=5, pady=5)</code></pre>
+    
+    <h3>4.3 Button Styling</h3>
+    <pre><code>button_style = {
+    "font": ("Arial", 12, "bold"),
+    "bg": "#4CAF50",
+    "fg": "white",
+    "borderwidth": 0,
+    "relief": "flat",
+    "highlightthickness": 0,
+    "padx": 10,
+    "pady": 5
+}</code></pre>
+    
+    <h3>4.4 Add Task Button</h3>
+    <pre><code>button_add_task = tk.Button(frame_tasks, text="Add Task", width=15, **button_style, command=add_task)
+button_add_task.pack(side=tk.LEFT, padx=5, pady=5)</code></pre>
+    
+    <h3>4.5 Delete Task Button</h3>
+    <pre><code>button_delete_task = tk.Button(root, text="Delete Task", width=20, **button_style, command=delete_task)
+button_delete_task.place(relx=0.5, rely=0.3, anchor="n")</code></pre>
+    
+    <h3>4.6 Listbox to Display Tasks</h3>
+    <pre><code>listbox_tasks = tk.Listbox(root, width=50, height=15, font=("Arial", 12), bg="#333333", fg="#ffffff", selectbackground="#add8e6")
+listbox_tasks.place(relx=0.5, rely=0.4, anchor="n")</code></pre>
+
+    <h2>5. Running the Application</h2>
+    <pre><code>root.mainloop()</code></pre>
+</body>
+</html>
